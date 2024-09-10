@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Profile Card</title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    <header>Personal Profile Card</header>
+    
+    <div class="form-section">
+    <section >
+       <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name"  contenteditable="true">
+    </section>
+    <section >
+        <label for="profile-image">Profile Image URL:</label>
+        <input type="text" id="photo" placeholder="paste image address here">
+        OR 
+        <label for="profile-image">Upload Profile Image:</label>
+        <input type="file" id="upload" placeholder="Upload Picture here"  accept="image/*">
+    </section>
+
+    <section>
+        <label for="bio">Your Bio:</label>
+        <textarea name="bio" id="short-bio" placeholder="write a short bio..."  contenteditable="true"></textarea>
+    </section>
+    <section >
+        <label for="linkedin">LinkedIn Profile:</label>
+        <input type="url" id="linkedin" placeholder="http://linkedin.com/abc">
+        <label for="github">GitHub Profile:</label>
+        <input type="url" id="github" placeholder="http://github.com/abc">
+    </section>
+    </section>
+        <button type="submit" id="btn">Generate Profile Card</button>
+    </section>
+</div>
+
+<div class="generated-card">
+    <div class="name-image">
+        <h3 id="display-name"></h3>   
+        <p id="display-image"></p>
+        <img id="display-upload-image" alt="Profile image">
+    </div>
+    
+    <p id="display-bio"></p>
+    <div class="url">
+        <ul id="links-list"></ul>
+    </div>
+
+    <button id="download-button" onclick="printButton()">Download your Card</button>
+    <button id="back-button">Regenerate Your Card</button>
+</div>
+
+    <footer>create with <b style="color: red;">❤</b> by Naimal Salahuddin</footer>
+    <script src="./main.js"></script>
+</body>
+</html>
