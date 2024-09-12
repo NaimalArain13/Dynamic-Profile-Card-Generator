@@ -34,12 +34,12 @@ const generatedCardBtn = document.querySelector("#btn") as HTMLButtonElement;
 const backBtn = document.querySelector("#back-button") as HTMLButtonElement;
 
 generatedCardSection.style.display = "none";
-document.querySelector("#btn")?.addEventListener("click", () => {
+generatedCardBtn.addEventListener("click", () => {
   formSection.style.display = "none";
   generatedCardSection.style.display = "block";
   backBtn.style.display = "block";
 });
-document.querySelector("#back-button")?.addEventListener("click", () => {
+backBtn.addEventListener("click", () => {
   formSection.style.display = "block";
   generatedCardSection.style.display = "none";
   generatedCardBtn.style.display = "block";
@@ -215,4 +215,58 @@ function resetForm() {
   if (linksList) {
     linksList.innerHTML = ""; // Remove any generated links
   }
+}
+
+
+// //Editing functionality
+//call this function on edit button click handler
+function editable(){
+  //tracking for editable or non-editable fields
+  let isEditable = false;
+
+  //access all fields for editing
+  const userName = document.querySelector("#display-name") as HTMLElement;
+  const userBio  = document.querySelector("#display-bio") as HTMLElement;
+  const editButton = document.querySelector("#edit-button") as HTMLButtonElement;
+
+
+  //initially all fields are non-editable
+  userName.contentEditable = "false";
+  userBio.contentEditable = "false";
+ 
+
+
+  editButton.addEventListener("click" , ()=>{
+    if(isEditable){
+      userName.contentEditable = "false";
+      userBio.contentEditable = "false";
+
+      //change button content and allow the fields to be edit
+      editButton.textContent = "Edit";
+
+      //save updated content
+      const updatedName = userName.textContent;
+      const updatedBio = userBio.textContent;
+
+
+      //log updated content to make sure the changes
+      console.log("Updated Name:" , updatedName)
+      console.log("Updated Bio:" , updatedBio)
+      
+    }
+    else{
+      //make fields editable
+      userName.contentEditable = "true";
+      userBio.contentEditable = "true";
+
+
+      //update the button content after updating the fields content and then save it. 
+      editButton.textContent = "Save";
+    
+    }
+
+    //Toggle the edit mode
+    isEditable = !isEditable
+  })
+
 }

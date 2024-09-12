@@ -13,19 +13,19 @@
     <div class="form-section">
     <section >
        <label for="name">Name:</label>
-        <input type="text" id="name" placeholder="Enter your name"  contenteditable="true">
+        <input type="text" id="name" placeholder="Enter your name" contenteditable="true">
     </section>
     <section >
         <label for="profile-image">Profile Image URL:</label>
-        <input type="text" id="photo" placeholder="paste image address here">
+        <input type="text" id="photo" placeholder="paste image address here" contenteditable="true">
         OR 
         <label for="profile-image">Upload Profile Image:</label>
-        <input type="file" id="upload" placeholder="Upload Picture here"  accept="image/*">
+        <input type="file" id="upload" placeholder="Upload Picture here"  accept="image/*" contenteditable="true">
     </section>
 
     <section>
         <label for="bio">Your Bio:</label>
-        <textarea name="bio" id="short-bio" placeholder="write a short bio..."  contenteditable="true"></textarea>
+        <textarea name="bio" id="short-bio" placeholder="write a short bio..." contenteditable="true"></textarea>
     </section>
     <section >
         <label for="linkedin">LinkedIn Profile:</label>
@@ -52,6 +52,7 @@
 
     <button id="download-button" onclick="printButton()">Download your Card</button>
     <button id="back-button">Regenerate Your Card</button>
+    <button id="edit-button" onclick="editable()">Edit</button>
 </div>
 
     <footer>create with <b style="color: red;">❤</b> by Naimal Salahuddin</footer>

@@ -1,5 +1,5 @@
 "use strict";
-var _a, _b, _c, _d;
+var _a, _b;
 //Toggle between url image or upload image
 const urlInput = document.querySelector("#photo");
 const fileInput = document.querySelector("#upload");
@@ -30,18 +30,18 @@ const generatedCardSection = document.querySelector(".generated-card");
 const generatedCardBtn = document.querySelector("#btn");
 const backBtn = document.querySelector("#back-button");
 generatedCardSection.style.display = "none";
-(_a = document.querySelector("#btn")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+generatedCardBtn.addEventListener("click", () => {
     formSection.style.display = "none";
     generatedCardSection.style.display = "block";
     backBtn.style.display = "block";
 });
-(_b = document.querySelector("#back-button")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+backBtn.addEventListener("click", () => {
     formSection.style.display = "block";
     generatedCardSection.style.display = "none";
     generatedCardBtn.style.display = "block";
     resetForm();
 });
-(_c = document.querySelector("#btn")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", (e) => {
+(_a = document.querySelector("#btn")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (e) => {
     var _a;
     e.preventDefault();
     //access input fields
@@ -126,7 +126,7 @@ function downloadButton() {
         backBtn.style.display = "block";
     }
 }
-(_d = document.querySelector("#download-button")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => {
+(_b = document.querySelector("#download-button")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
     downloadButton();
 });
 //Form Validation
@@ -183,4 +183,42 @@ function resetForm() {
     if (linksList) {
         linksList.innerHTML = ""; // Remove any generated links
     }
+}
+// //Editing functionality
+function editable() {
+    let isEditable = false;
+    const userName = document.querySelector("#display-name");
+    const userBio = document.querySelector("#display-bio");
+    const userUrlImage = document.querySelector("#display-image");
+    const userUploadImage = document.querySelector("#display-upload-image");
+    const editButton = document.querySelector("#edit-button");
+    userName.contentEditable = "false";
+    userBio.contentEditable = "false";
+    userUploadImage.contentEditable = "false";
+    userUrlImage.contentEditable = "false";
+    editButton.addEventListener("click", () => {
+        if (isEditable) {
+            userName.contentEditable = "false";
+            userBio.contentEditable = "false";
+            userUploadImage.contentEditable = "false";
+            userUrlImage.contentEditable = "false";
+            editButton.textContent = "Edit";
+            const updatedName = userName.textContent;
+            const updatedBio = userBio.textContent;
+            const updatedUserUrlImage = userUrlImage.textContent;
+            const updatedUserImageUplaod = userUploadImage.textContent;
+            console.log("Updated Name:", updatedName);
+            console.log("Updated Bio:", updatedBio);
+            console.log("Updated URL Image:", updatedUserUrlImage);
+            console.log("Updated Upload Image:", updatedUserImageUplaod);
+        }
+        else {
+            userName.contentEditable = "true";
+            userBio.contentEditable = "true";
+            userUploadImage.contentEditable = "true";
+            userUrlImage.contentEditable = "true";
+            editButton.textContent = "Save";
+        }
+        isEditable = !isEditable;
+    });
 }
